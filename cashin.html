@@ -1,107 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Cash In – Lucky888</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/style.css">
+    <meta charset="UTF-8">
+    <title>Cash In</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/mobile.css">
 </head>
+
 <body>
-<div class="page">
-  <header class="navbar">
-    <div class="navbar-inner">
-      <div class="nav-logo">LUCKY888 · TEAM YHUNA</div>
-      <nav class="nav-links">
+
+<header>
+    <div>Cash In</div>
+    <div class="nav">
         <a href="index.html">Home</a>
         <a href="mop.html">MOP</a>
-        <a href="cashin.html" class="active">Cash In</a>
-        <a href="cashout.html">Cash Out</a>
-      </nav>
+        <a class="active">IN</a>
+        <a href="cashout.html">OUT</a>
     </div>
-  </header>
+</header>
 
-  <div id="loaderBanner" class="banner banner-danger banner-hidden"></div>
+<div id="loaderBanner"></div>
 
-  <main class="main">
-    <section class="container form-lock">
-      <h1>🟢 Cash In Form</h1>
-      <p style="font-size:13px;">
-        Fill this out, then copy the message and send it with your GCash screenshot
-        into the official Team Yhuna Messenger group.
-      </p>
+<div class="main">
 
-      <label>Username (BMY88)</label>
-      <input id="ci_username" placeholder="xny0102koi">
+    <label>Username</label>
+    <input id="ci_user" type="text">
 
-      <label>GCash Account Name</label>
-      <input id="ci_gcashname" placeholder="Juan Dela Cruz">
+    <label>GCash Name</label>
+    <input id="ci_name" type="text">
 
-      <label>GCash Number</label>
-      <input id="ci_gcashnum" placeholder="09XXXXXXXXX">
+    <label>GCash Number</label>
+    <input id="ci_num" type="text">
 
-      <label>Amount (PHP)</label>
-      <input id="ci_amount" type="number" min="0">
+    <label>Amount (₱)</label>
+    <input id="ci_amt" type="number">
 
-      <label>Upload GCash Screenshot (for your reference)</label>
-      <input id="ci_screenshot" type="file">
+    <button class="btn btn-primary" onclick="generate()">Generate Message</button>
 
-      <button class="btn btn-primary" onclick="generateCashIn()">Generate Message</button>
+    <div id="output" class="outputBox"></div>
 
-      <div id="ci_output" class="outputBox"></div>
+    <button class="btn btn-secondary" onclick="copyMsg()">Copy</button>
 
-      <button class="btn btn-secondary" onclick="copyCashIn()">Copy Message</button>
-      <a class="btn btn-messenger messenger-link" target="_blank">
-        Open Messenger Group
-      </a>
+    <a class="btn btn-messenger messenger-link" target="_blank">Open Messenger</a>
 
-      <p style="font-size:11px; margin-top:10px; color:#a0a3be;">
-        Reminder: Attach your GCash screenshot and paste this message
-        in the official GC. Loader will reply <strong>"Loaded"</strong> once processed.
-      </p>
-    </section>
-  </main>
-
-  <footer class="footer">
-    Lucky888 · Team Yhuna · Cash In Helper
-  </footer>
 </div>
 
 <script src="assets/app.js"></script>
+
 <script>
-  function generateCashIn() {
-    const u = document.getElementById("ci_username").value || "";
-    const n = document.getElementById("ci_gcashname").value || "";
-    const g = document.getElementById("ci_gcashnum").value || "";
-    const a = document.getElementById("ci_amount").value || "";
+function generate() {
+    let msg =
+`🟢 CASH IN – TEAM YHUNA
 
-    const now = new Date().toLocaleString();
+NAME: ${ci_name.value}
+GCASH: ${ci_num.value}
+AMOUNT: ${ci_amt.value}
+USERNAME: ${ci_user.value}
 
-    const msg = 
-`🟢 𝗖𝗔𝗦𝗛 𝗜𝗡 𝗙𝗢𝗥𝗠 – 𝗧𝗘𝗔𝗠 𝗬𝗛𝗨𝗡𝗔
-
-TIME CASH IN: ${now}
-CASH IN METHOD: gcash
-ACCT NAME: ${n}
-ACC NUMBER: ${g}
-AMOUNT: ${a}
-USERNAME: ${u}
-
-(Screenshot of GCash transaction attached)
+(Screenshot attached)
 `;
+    output.innerText = msg;
+}
 
-    document.getElementById("ci_output").innerText = msg;
-  }
-
-  function copyCashIn() {
-    const text = document.getElementById("ci_output").innerText;
-    if (!text.trim()) {
-      alert("Generate the message first.");
-      return;
-    }
-    navigator.clipboard.writeText(text)
-      .then(() => alert("Cash-in message copied! Paste it in Messenger."))
-      .catch(() => alert("Could not copy. Please select and copy manually."));
-  }
+function copyMsg() {
+    navigator.clipboard.writeText(output.innerText);
+    alert("Copied!");
+}
 </script>
+
 </body>
 </html>
