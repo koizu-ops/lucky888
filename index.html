@@ -1,66 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Lucky888 – Team Yhuna Portal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/style.css">
+    <meta charset="UTF-8">
+    <title>Lucky888 – Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/mobile.css">
 </head>
+
 <body>
-<div class="page">
-  <header class="navbar">
-    <div class="navbar-inner">
-      <div class="nav-logo">LUCKY888 · TEAM YHUNA</div>
-      <nav class="nav-links">
+
+<header>
+    <div>Lucky888 · Yhuna</div>
+    <div class="nav">
         <a href="index.html" class="active">Home</a>
         <a href="mop.html">MOP</a>
-        <a href="cashin.html">Cash In</a>
-        <a href="cashout.html">Cash Out</a>
-      </nav>
+        <a href="cashin.html">IN</a>
+        <a href="cashout.html">OUT</a>
     </div>
-  </header>
+</header>
 
-  <div id="loaderBanner" class="banner banner-danger banner-hidden"></div>
+<div id="loaderBanner"></div>
 
-  <main class="main">
-    <section class="container">
-      <h1>Play Smart. Cash-In & Cash-Out the Easy Way.</h1>
-      <p>
-        This portal helps <strong>Team Yhuna</strong> players format their
-        <strong>cash-in</strong> and <strong>cash-out</strong> messages correctly,
-        so loaders can process them faster in the official Messenger group.
-      </p>
-      <p>
-        Fill the form here → copy the message → send it into the
-        <strong>Team Yhuna Messenger GC</strong> with your screenshot.
-      </p>
+<div class="main">
 
-      <div class="hero-actions">
-        <a href="cashin.html" class="btn btn-primary">🟢 Cash In</a>
-        <a href="cashout.html" class="btn btn-secondary">🟡 Cash Out</a>
-        <a href="mop.html" class="btn btn-secondary">📜 Mode of Payment</a>
-      </div>
+    <h1>Welcome</h1>
 
-      <h2 style="margin-top:22px;">How it works</h2>
-      <ol style="font-size:14px; padding-left:18px;">
-        <li>Open the <strong>Cash In</strong> or <strong>Cash Out</strong> page.</li>
-        <li>Fill in your username, GCash details, and amount.</li>
-        <li>Upload your GCash or winning screenshot.</li>
-        <li>Tap <strong>Generate Message</strong> → <strong>Copy</strong> → <strong>Open Messenger GC</strong>.</li>
-        <li>Paste the message, attach the screenshot, and send.</li>
-        <li>Wait for the loader to reply <strong>"Loaded"</strong> or <strong>"Paid"</strong>.</li>
-      </ol>
+    <p style="font-size:16px; line-height:1.5;">
+        This tool helps you easily send correctly formatted
+        Cash-In and Cash-Out messages to the Team Yhuna Messenger group.
+    </p>
 
-      <p style="font-size:12px; margin-top:16px;">
-        Note: Loaders will <strong>only</strong> process requests sent inside the official Team Yhuna group chat.
-        This site does not replace Messenger – it just makes formatting easier.
-      </p>
-    </section>
-  </main>
+    <button class="btn btn-primary" onclick="location.href='cashin.html'">
+        🟢 Cash In
+    </button>
 
-  <footer class="footer">
-    Lucky888 · Team Yhuna · Player Helper Portal
-  </footer>
+    <button class="btn btn-secondary" onclick="location.href='cashout.html'">
+        🟡 Cash Out
+    </button>
+
+    <button class="btn btn-secondary" onclick="location.href='mop.html'">
+        📜 Mode of Payment
+    </button>
+
 </div>
 
 <script src="assets/app.js"></script>
