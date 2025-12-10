@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cash Out – Lucky888</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="page">
+  <header class="navbar">
+    <div class="navbar-inner">
+      <div class="nav-logo">LUCKY888 · TEAM YHUNA</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="mop.html">MOP</a>
+        <a href="cashin.html">Cash In</a>
+        <a href="cashout.html" class="active">Cash Out</a>
+      </nav>
+    </div>
+  </header>
+
+  <div id="loaderBanner" class="banner banner-danger banner-hidden"></div>
+
+  <main class="main">
+    <section class="container form-lock">
+      <h1>🟡 Cash Out Form</h1>
+      <p style="font-size:13px;">
+        Use this after you win. Fill in your GCash details and amount,
+        then copy the generated message and send it with your winning screenshot
+        into the official Team Yhuna Messenger group.
+      </p>
+
+      <label>GCash Account Name</label>
+      <input id="co_name" placeholder="Your GCash name">
+
+      <label>GCash Number</label>
+      <input id="co_num" placeholder="09XXXXXXXXX">
+
+      <label>Amount (PHP)</label>
+      <input id="co_amt" type="number" min="0">
+
+      <label>Username (BMY88)</label>
+      <input id="co_user" placeholder="xny0102sss">
+
+      <label>Agent Tip (optional, PHP)</label>
+      <input id="co_agent" type="number" min="0" placeholder="0">
+
+      <label>Loader Tip (optional, PHP)</label>
+      <input id="co_loader" type="number" min="0" placeholder="0">
+
+      <label>Upload Winning Screenshot (for your reference)</label>
+      <input id="co_shot" type="file">
+
+      <button class="btn btn-primary" onclick="generateCashOut()">Generate Message</button>
+
+      <div id="co_output" class="outputBox"></div>
+
+      <button class="btn btn-secondary" onclick="copyCashOut()">Copy Message</button>
+      <a class="btn btn-messenger messenger-link" target="_blank">
+        Open Messenger Group
+      </a>
+
+      <p style="font-size:11px; margin-top:10px; color:#a0a3be;">
+        Reminder: <strong>No winning pic, no cash out.</strong><br>
+        Attach your winning screenshot and paste this message
+        in the official GC. Loader will reply <strong>"Paid"</strong> once processed.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Lucky888 · Team Yhuna · Cash Out Helper
+  </footer>
+</div>
+
+<script src="assets/app.js"></script>
+<script>
+  function generateCashOut() {
+    const name = document.getElementById("co_name").value || "";
+    const num  = document.getElementById("co_num").value || "";
+    const amt  = document.getElementById("co_amt").value || "";
+    const user = document.getElementById("co_user").value || "";
+    const ag   = document.getElementById("co_agent").value || "0";
+    const ld   = document.getElementById("co_loader").value || "0";
+
+    const now = new Date().toLocaleString();
+
+    const msg =
+`🟡 𝗖𝗔𝗦𝗛 𝗢𝗨𝗧 𝗙𝗢𝗥𝗠 – 𝗧𝗘𝗔𝗠 𝗬𝗛𝗨𝗡𝗔
+
+TIME CASH OUT: ${now}
+CASH OUT METHOD: gcash
+ACCT NAME: ${name}
+ACC NUMBER: ${num}
+AMOUNT: ${amt}
+USERNAME: ${user}
+
+OPTIONAL
+AGENT TIP: ${ag}
+LOADER TIP: ${ld}
+
+(Winning screenshot attached)
+`;
+
+    document.getElementById("co_output").innerText = msg;
+  }
+
+  function copyCashOut() {
+    const text = document.getElementById("co_output").innerText;
+    if (!text.trim()) {
+      alert("Generate the message first.");
+      return;
+    }
+    navigator.clipboard.writeText(text)
+      .then(() => alert("Cash-out message copied! Paste it in Messenger."))
+      .catch(() => alert("Could not copy. Please select and copy manually."));
+  }
+</script>
+</body>
+</html>
